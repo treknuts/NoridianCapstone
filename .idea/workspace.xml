@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d0328f8-920d-45bf-b151-54290eb01145" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataExtraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataExtraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataVisualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataVisualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +54,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="dataVisualization" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="guiTesting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataVisualization.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="fileUpload" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guiTesting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,37 +96,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="testGui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="guiTesting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testGui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.DataExtraction" />
       <item itemvalue="Python.fileUpload" />
-      <item itemvalue="Python.testGui" />
+      <item itemvalue="Python.dataVisualization" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.DataExtraction" />
+        <item itemvalue="Python.dataVisualization" />
         <item itemvalue="Python.fileUpload" />
-        <item itemvalue="Python.testGui" />
       </list>
     </recent_temporary>
   </component>
@@ -125,30 +123,34 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583166333012">
+    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583167338362">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583166333012" />
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583166775757">
+    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583167338362" />
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583171922955">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583166775757" />
-    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583166775756">
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583171922955" />
+    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583171922954">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583166775756" />
-    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583166775756">
+    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583171922954" />
+    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583171922953">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583166775756" />
-    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583166775757">
+    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583171922953" />
+    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583171922955">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583166775757" />
+    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583171922955" />
     <state x="221" y="60" key="SettingsEditor" timestamp="1581443067810">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="221" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1581443067810" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1583169893284">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1583169893284" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
