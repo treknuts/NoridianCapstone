@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d0328f8-920d-45bf-b151-54290eb01145" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/trevor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Error.py" beforeDir="false" afterPath="$PROJECT_DIR$/Error.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Index.py" beforeDir="false" afterPath="$PROJECT_DIR$/Index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,30 +127,30 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583173551760" />
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583176509092">
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583177979215">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583176509092" />
-    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583176509092">
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583177979215" />
+    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583177979214">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583176509092" />
-    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583176509091">
+    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583177979214" />
+    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583177979214">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583176509091" />
-    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583176509092">
+    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583177979214" />
+    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583177979215">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583176509092" />
+    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583177979215" />
     <state x="221" y="60" key="SettingsEditor" timestamp="1581443067810">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="221" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1581443067810" />
-    <state x="482" y="59" key="refactoring.ChangeSignatureDialog" timestamp="1583172267920">
+    <state x="482" y="59" key="refactoring.ChangeSignatureDialog" timestamp="1583177900155">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="482" y="59" key="refactoring.ChangeSignatureDialog/0.23.1440.797@0.23.1440.797" timestamp="1583172267920" />
+    <state x="482" y="59" key="refactoring.ChangeSignatureDialog/0.23.1440.797@0.23.1440.797" timestamp="1583177900155" />
     <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1583169893284">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
