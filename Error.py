@@ -1,4 +1,7 @@
-# Array to hold all error objects used to test code
+# Author: William Fleck
+# Created on: 02/27/2020
+# Description: Definition of the Error class
+
 from datetime import datetime
 
 
@@ -15,6 +18,37 @@ class Error:
 
     def to_string(self):
         return 'IOM violation {} on {}'.format(self.error_code, self.date)
+
+    # The first method is to return error objects within a certain date range
+    # First argument is array of error objects
+    # Second argument is the start of date range
+    # Third argument is end of date range
+    # date format should be using example December 17, 2016 "datetime.datetime(2016, 17, 12)"
+    @staticmethod
+    def get_errors_by_date(a, d1, d2):
+        errors_by_date = []
+
+        for x in a:
+            if d1 <= x.get_date() <= d2:
+                errors_by_date.append(x)
+
+        return errors_by_date
+
+    @staticmethod
+    def get_errors_by_error_type(a, e_type):
+        errors_by_error_type = []
+        for x in a:
+            if x.get_error_code() == e_type:
+                errors_by_error_type.append(x)
+        return errors_by_error_type
+
+    @staticmethod
+    def get_errors_by_error_type_and_date(a, d1, d2, e_type):
+        errors_by_error_type_and_date = []
+        for x in a:
+            if (d1 <= x.get_date() <= d2) and x.get_error_code() == e_type:
+                errors_by_error_type_and_date.append(x)
+        return errors_by_error_type_and_date
 
 
 # Array containing errors to be used for testing
@@ -73,71 +107,15 @@ errors = [Error(datetime(2015, 4, 12), "60.8C1"),
           Error(datetime(2019, 10, 5), "60.8C8")]
 
 
-# The first method is to return error objects within a certain date range
-# First argument is array of error objects
-# Second argument is the start of date range
-# Third argument is end of date range
-# date format should be using example December 17, 2016 "datetime.datetime(2016, 17, 12)"
-def get_errors_by_date(a, d1, d2):
-    errors_by_date = []
-
-    for x in a:
-        if d1 <= x.get_date() <= d2:
-            errors_by_date.append(x)
-
-    return errors_by_date
-
-
-# This method will return all errors of a certain contract type
-# Contract type should be either: "short-term", "medium-term", "long-term"
-# First parameter is array of errors
-# Second parameters is contract type
-def get_errors_by_contract_type(a, c_type):
-    errors_by_contract_type = []
-    for x in a:
-        if x.get_contract_type() == c_type:
-            errors_by_contract_type.append(x)
-    return errors_by_contract_type
-
-
-def get_errors_by_error_type(a, e_type):
-    errors_by_error_type = []
-    for x in a:
-        if x.get_error_code() == e_type:
-            errors_by_error_type.append(x)
-    return errors_by_error_type
-
-
-# Returns array of errors based on error type and date
-def get_errors_by_error_type_and_date(a, d1, d2, e_type):
-    errors_by_error_type_and_date = []
-    for x in a:
-        if (d1 <= x.get_date() <= d2) and x.get_error_code() == e_type:
-            errors_by_error_type_and_date.append(x)
-    return errors_by_error_type_and_date
-
-
 # UNIT TEST def get_errors_by_date(a, d1, d2):
-t1 = get_errors_by_date(errors, datetime(2017, 1, 1), datetime(2019, 1, 1))
+t1 = Error.get_errors_by_date(errors, datetime(2015, 1, 1), datetime(2019, 1, 1))
 for x in t1:
     print(x.to_string())
 
-# UNIT TEST def get_errors_by_contract_type(a, c_type):
-
-
 # UNIT TEST def get_errors_by_error_type(a, e_type):
-
+t2 = Error.get_errors_by_error_type(errors, '60.8C5')
+for i in t2:
+    print(i.to_string())
 
 # UNIT TEST def get_errors_by_error_type_and_date(a, d1, d2, e_type):
 
-
-# UNIT TEST def get_errors_by_contract_type_and_error_type(a, c_type, e_type):
-
-
-# UNIT TEST def get_errors_by_contract_type_and_error_type(a, c_type, e_type):
-
-
-# UNIT TEST def get_errors_by_contract_type_and_date(a, d1, d2, c_type):
-
-
-# UNIT TEST def get_errors_by_contract_and_error_type_and_date(a, d1, d2, c_type, e_type):

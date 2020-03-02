@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d0328f8-920d-45bf-b151-54290eb01145" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/trevor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataExtraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataExtraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Error.py" beforeDir="false" afterPath="$PROJECT_DIR$/Error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Index.py" beforeDir="false" afterPath="$PROJECT_DIR$/Index.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +35,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.DataExtraction">
-    <configuration name="DataExtraction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.dashboard">
+    <configuration name="dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guiTesting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -45,7 +48,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataExtraction.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dashboard.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -97,13 +100,13 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.DataExtraction" />
       <item itemvalue="Python.fileUpload" />
       <item itemvalue="Python.dataVisualization" />
+      <item itemvalue="Python.dashboard" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.DataExtraction" />
+        <item itemvalue="Python.dashboard" />
         <item itemvalue="Python.dataVisualization" />
         <item itemvalue="Python.fileUpload" />
       </list>
@@ -123,30 +126,34 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583167338362">
+    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583173551760">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583167338362" />
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583171922955">
+    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583173551760" />
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583176509092">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583171922955" />
-    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583171922954">
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583176509092" />
+    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583176509092">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583171922954" />
-    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583171922953">
+    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583176509092" />
+    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583176509091">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583171922953" />
-    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583171922955">
+    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583176509091" />
+    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583176509092">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583171922955" />
+    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583176509092" />
     <state x="221" y="60" key="SettingsEditor" timestamp="1581443067810">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="221" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1581443067810" />
+    <state x="482" y="59" key="refactoring.ChangeSignatureDialog" timestamp="1583172267920">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="482" y="59" key="refactoring.ChangeSignatureDialog/0.23.1440.797@0.23.1440.797" timestamp="1583172267920" />
     <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1583169893284">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
