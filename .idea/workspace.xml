@@ -4,6 +4,7 @@
     <list default="true" id="0d0328f8-920d-45bf-b151-54290eb01145" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataVisualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataVisualization.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="Python.dashboard">
     <configuration name="dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -97,9 +98,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.fileUpload" />
-      <item itemvalue="Python.dataVisualization" />
       <item itemvalue="Python.dashboard" />
+      <item itemvalue="Python.dataVisualization" />
+      <item itemvalue="Python.fileUpload" />
     </list>
     <recent_temporary>
       <list>
@@ -123,38 +124,58 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583173551760">
+    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583426947886">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583173551760" />
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583177979215">
+    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583426947886" />
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom" timestamp="1583436004465">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583177979215" />
-    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583177979214">
+    <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583436004465" />
+    <state width="1419" height="201" key="GridCell.Tab.0.center" timestamp="1583436004464">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583177979214" />
-    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583177979214">
+    <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583436004464" />
+    <state width="1419" height="201" key="GridCell.Tab.0.left" timestamp="1583436004463">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583177979214" />
-    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583177979215">
+    <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583436004463" />
+    <state width="1419" height="201" key="GridCell.Tab.0.right" timestamp="1583436004464">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583177979215" />
-    <state x="221" y="60" key="SettingsEditor" timestamp="1581443067810">
+    <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583436004464" />
+    <state width="1419" height="253" key="GridCell.Tab.1.bottom" timestamp="1583433385001">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="221" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1581443067810" />
+    <state width="1419" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
+    <state width="1419" height="253" key="GridCell.Tab.1.center" timestamp="1583433385001">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1419" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
+    <state width="1419" height="253" key="GridCell.Tab.1.left" timestamp="1583433385001">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1419" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
+    <state width="1419" height="253" key="GridCell.Tab.1.right" timestamp="1583433385001">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state width="1419" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
+    <state x="221" y="60" key="SettingsEditor" timestamp="1583430076445">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="221" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1583430076445" />
+    <state x="503" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583430003944">
+      <screen x="0" y="23" width="1440" height="797" />
+    </state>
+    <state x="503" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.797@0.23.1440.797" timestamp="1583430003944" />
     <state x="482" y="59" key="refactoring.ChangeSignatureDialog" timestamp="1583177900155">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state x="482" y="59" key="refactoring.ChangeSignatureDialog/0.23.1440.797@0.23.1440.797" timestamp="1583177900155" />
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1583169893284">
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup" timestamp="1583435499871">
       <screen x="0" y="23" width="1440" height="797" />
     </state>
-    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1583169893284" />
+    <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1583435499871" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
