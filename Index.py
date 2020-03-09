@@ -1,30 +1,32 @@
 # Author: Tanner Nystrom
 from tkinter import filedialog
 from tkinter import *
-# import xlrd
+import xlrd
+import datetime
 
 root = Tk()
 
 
+
 def __init__():
-    # Set the window size to 1000 by 700
+    setupWindow()
+
+
+def setupWindow():
+    #Set the window size to 1000 by 700
     root.geometry('1000x700')
+    root.configure(background='turquoise')
     width = 1000
     height = 700
     root.title("Noridian Audit Application")
-    # Sets the size of the button frame to 80 by 200
-    f = Frame(root, height=80, width=200)
-    f.pack_propagate(0)
-    f.pack()
 
-    # Create button with text "Browse" and action to method openFile
-    b = Button(f, text="Browse", compound=CENTER, command=open_file)
-    b.pack()
+    browseButton = Button(root, text="Import Files", width=15, height=2, command=openFile).place(x=850, y=350)
+
 
     mainloop()
 
 
-def open_file():
+def openFile():
     root.fileName = filedialog.askopenfilename(initialdir="/", title="Select file",
                                                filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
 
@@ -36,28 +38,48 @@ def open_file():
     # saves the first sheet of the spreadsheet as sheet"
     sheet = wb.sheet_by_index(0)
 
-    # creates an array to store all values
-    cells_number = []
-    cells_string = []
-    # loop through every cell, add it to the array
-    for i in range(0, sheet.nrows):
-        for j in range(0, sheet.ncols):
-            # sheet.cell_value calls the exact value (EX: 2.0) but sheet.cell calls value and type (EX: number: 2.0)
-            if isinstance(sheet.cell_value(i, j), str):
-                cells_string.append(sheet.cell_value(i, j))
-            else:
-                cells_number.append(int(sheet.cell_value(i, j)))
+    getMainData(sheet)
 
-    # print every value in the array cells
+    initialValues(sheet)
 
-    print("Numbers found in file " + str(cells_number))
-    print("Strings found in file " + str(cells_string))
+def initialValues(sheet):
+    providedName = sheet.cell_value(6,2)
+    providedNumber = sheet.cell_value(7, 2)
+    yearEnd = (sheet.cell_value(8, 2))
+    reviewer = sheet.cell_value(9, 2)
+    inCharge = sheet.cell_value(10, 2)
+    dateReviewed = sheet.cell_value(11,2)
 
-    cells_number.sort()
-    cells_string.sort()
-    print("================================================")
-    print("Sorted Numbers found in file " + str(cells_number))
-    print("Alphabetical Strings found in file " + str(cells_string))
+
+
+    print(providedName)
+    print(providedNumber)
+    print(yearEnd)
+    print(reviewer)
+    print(inCharge)
+    print(dateReviewed)
+
+
+
+def getMainData(sheet):
+    totalArray = []
+
+    for j in range(15, sheet.nrows):
+        row = []
+        for i in range(0, 5):
+            if not (sheet.cell_value(j,i) == ""):
+                value = sheet.cell_value(j, i)
+                row.append(value)
+        if not len(row) == 0:
+            totalArray.append(row)
+
+
+    print(totalArray)
+
+    return totalArray
+
+
+
 
 
 __init__()
