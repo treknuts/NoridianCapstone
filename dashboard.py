@@ -1,6 +1,9 @@
 # Author: Trevor Knutson
 # Created on: 03/02/2020
-# Description: The application's dashboard with data visualizations and report statistics
+# Description: The application's dashboard with data visualizations and review category statistics
+
+# TODO: Create a navigation bar that allows users to navigate between Dashboard, File-upload, and Detail views (may
+#  not be implemented in this file as the navbar should be globally consistent)
 
 from tkinter import *
 from matplotlib.figure import Figure
