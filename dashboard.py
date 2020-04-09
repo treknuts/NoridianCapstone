@@ -16,9 +16,9 @@ class Dashboard(Frame):
         # master will be set to 'root' defined in the main method
         super().__init__(master)
         self.master = master
-        self.master.title("Noridian Capstone App")
-        self.master.geometry("1900x1000")
-        self.master.configure(background='white')
+        self.init_window()
+
+    def init_window(self):
 
         # Canvas and Frame for the window
         # self.container_canvas = Canvas(self.master)
@@ -40,8 +40,6 @@ class Dashboard(Frame):
         self.category_stat(self.frame4, 1, 3, 17)
         self.frame5 = self.create_frame(1, 4)
         self.category_stat(self.frame5, 1, 4, 11)
-        # self.bottom_frame = Frame(self.master)
-        # self.bottom_frame.grid(sticky=SW, padx=10, pady=10)
 
         # Create scrollable canvas to put review category frames in
         canvas = Canvas(self.master)
@@ -117,15 +115,8 @@ class Dashboard(Frame):
 
 if __name__ == '__main__':
     root = Tk()
-    root.resizable(False, False)
+    root.title("Noridian Capstone App")
+    root.geometry("1900x1000")
+    root.configure(background='white')
     app = Dashboard(root)
-    # canvas = Canvas(app.master)
-    # scroll = Scrollbar(root, orient=VERTICAL, command=canvas.yview)
-    # frame = Frame(canvas)
-    # frame.grid(column=0, row=1)
-    # canvas.create_window(0, 0, anchor=NW, window=frame)
-    # canvas.update_idletasks()
-    # canvas.configure(yscrollcommand=scroll.set, scrollregion=canvas.bbox("all"))
-    # canvas.grid(column=0, row=0)
-    # scroll.grid(column=1, row=0)
     mainloop()
