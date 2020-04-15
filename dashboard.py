@@ -5,6 +5,7 @@
 # TODO: Create a navigation bar that allows users to navigate between Dashboard, File-upload, and Detail views (may
 #  not be implemented in this file as the navbar should be globally consistent)
 
+
 from tkinter import *
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas
@@ -19,7 +20,6 @@ class Dashboard(Frame):
         self.init_window()
 
     def init_window(self):
-
         # Canvas and Frame for the window
         # self.container_canvas = Canvas(self.master)
         # self.window_frame = Frame(self.container_canvas)
@@ -33,6 +33,7 @@ class Dashboard(Frame):
         self.frame1 = self.create_frame(1, 0)
         self.category_stat(self.frame1, 1, 0, 52)
         self.frame2 = self.create_frame(1, 1)
+
         self.category_stat(self.frame2, 1, 1, 33)
         self.frame3 = self.create_frame(1, 2)
         self.category_stat(self.frame3, 1, 2, 25)

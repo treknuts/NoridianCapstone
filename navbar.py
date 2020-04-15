@@ -8,6 +8,7 @@ class Navbar(Frame):
         super().__init__(master)
         self.master = master
         self.init_window()
+        self.file_upload = FileUpload(self.master)
 
     def init_window(self):
         menu = Menu(self.master)
@@ -21,12 +22,14 @@ class Navbar(Frame):
         self.master.config(menu=menu)
 
     def open_dashboard(self):
-        dashboard = Dashboard(self.master)
-        return dashboard
+        self.dashboard = Dashboard(self.master)
+        self.file_upload.quit()
+        return self.dashboard
 
     def open_fileupload(self):
-        file_upload = FileUpload(self.master)
-        return file_upload
+        self.file_upload = FileUpload(self.master)
+        self.dashboard.quit()
+        return self.file_upload
 
 
 if __name__ == '__main__':
