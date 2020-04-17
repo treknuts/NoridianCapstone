@@ -9,14 +9,15 @@
 from tkinter import *
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas
+from fileupload import FileUpload
 
 
 class Dashboard(Frame):
-    def __init__(self, master=None):
+    def __init__(self, parent):
         # App window definition
         # master will be set to 'root' defined in the main method
-        super().__init__(master)
-        self.master = master
+        super().__init__(parent)
+        self.parent = parent
         self.init_window()
 
     def init_window(self):
@@ -43,8 +44,8 @@ class Dashboard(Frame):
         self.category_stat(self.frame5, 1, 4, 11)
 
         # Create scrollable canvas to put review category frames in
-        canvas = Canvas(self.master)
-        scroll = Scrollbar(self.master)
+        canvas = Canvas(self.parent)
+        scroll = Scrollbar(self.parent)
         self.categories_frame = Frame(canvas, width=600, height=100)
         self.categories_frame.grid(row=0, column=0, columnspan=5, sticky=NW, padx=10, pady=10)
 
@@ -56,7 +57,7 @@ class Dashboard(Frame):
         self.review_type2 = self.create_review_category(2)
         self.review_type_info(self.review_type2, "Director Review")
         self.review_type3 = self.create_review_category(3)
-        self.review_type_info(self.review_type3, "Inner Office Review")
+        self.review_type_info(self.review_type3, "Inter Office Review")
         self.review_type4 = self.create_review_category(4)
         self.review_type_info(self.review_type4, "Technical/Quality Assurance Review")
 
@@ -67,14 +68,15 @@ class Dashboard(Frame):
         scroll.config(command=canvas.yview)
         canvas.grid(column=0, row=2, columnspan=6)
         scroll.grid(column=6, row=2, rowspan=5, sticky=N + S + W)
+        canvas.yview_moveto(0)
 
     def create_category_label(self, row, col, text):
-        self.label1 = Label(self.master, text=text, anchor=CENTER)
+        self.label1 = Label(self.parent, text=text, anchor=CENTER)
         self.label1.config(width=10, font=("Courier", 20))
         self.label1.grid(sticky=NW, column=col, row=row, padx=5, pady=5)
 
     def create_frame(self, row, col):
-        self.frame = Frame(self.master, bd=2, width=20, relief=SUNKEN)
+        self.frame = Frame(self.parent, bd=2, width=20, relief=SUNKEN)
         self.frame.grid(sticky=NW, column=col, row=row, columnspan=2, padx=10, pady=10)
         return self.frame
 
