@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d0328f8-920d-45bf-b151-54290eb01145" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fileupload.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navbar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/guiTesting.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/guiTesting.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fileUpload.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,16 +46,43 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DataManipulationExtraction" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.navbar">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DataManipulationExtraction" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Error_Processing">
+    <configuration name="Error_Processing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="guiTesting" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataManipulationExtraction/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataManipulationExtraction/src/Error_Processing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dashboard" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guiTesting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -148,38 +171,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="navbar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="guiTesting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/navbar.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.dashboard" />
       <item itemvalue="Python.dataVisualization" />
       <item itemvalue="Python.fileUpload" />
-      <item itemvalue="Python.navbar" />
+      <item itemvalue="Python.Error_Processing" />
       <item itemvalue="Python.fileupload" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.navbar" />
+        <item itemvalue="Python.Error_Processing" />
         <item itemvalue="Python.fileupload" />
         <item itemvalue="Python.dashboard" />
         <item itemvalue="Python.dataVisualization" />
@@ -199,35 +200,52 @@
       <updated>1581443014205</updated>
       <workItem from="1586447436327" duration="3913000" />
       <workItem from="1586451364157" duration="1089000" />
+      <workItem from="1586815363459" duration="669000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583426947886">
-      <screen x="0" y="23" width="1440" height="797" />
+    <state x="184" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586816015822">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="184" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1586816015822" />
     <state x="184" y="83" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.797@0.23.1440.797" timestamp="1583426947886" />
-    <state width="1877" height="244" key="GridCell.Tab.0.bottom" timestamp="1586452638429">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1586816018258">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586816018258" />
     <state width="1877" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
     <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583436004465" />
-    <state width="1877" height="244" key="GridCell.Tab.0.center" timestamp="1586452638429">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1586816018256">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586816018256" />
     <state width="1877" height="244" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
     <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583436004464" />
-    <state width="1877" height="244" key="GridCell.Tab.0.left" timestamp="1586452638429">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1586816018255">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586816018255" />
     <state width="1877" height="244" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
     <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583436004463" />
-    <state width="1877" height="244" key="GridCell.Tab.0.right" timestamp="1586452638429">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1586816018257">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586816018257" />
     <state width="1877" height="244" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
     <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583436004464" />
     <state width="1419" height="253" key="GridCell.Tab.1.bottom" timestamp="1583433385001">
@@ -246,9 +264,10 @@
       <screen x="0" y="23" width="1440" height="797" />
     </state>
     <state width="1419" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
-    <state x="295" y="48" key="SettingsEditor" timestamp="1586451353292">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="221" y="42" key="SettingsEditor" timestamp="1586815887301">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="221" y="42" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1586815887301" />
     <state x="295" y="48" key="SettingsEditor/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586451353292" />
     <state x="221" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1583430076445" />
     <state x="671" y="420" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586447454291">
@@ -280,5 +299,6 @@
     <SUITE FILE_PATH="coverage/NoridianCapstone$dashboard.coverage" NAME="dashboard Coverage Results" MODIFIED="1586447573005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NoridianCapstone$navbar.coverage" NAME="navbar Coverage Results" MODIFIED="1586452514001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NoridianCapstone$file_upload.coverage" NAME="file-upload Coverage Results" MODIFIED="1586449779674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$data_extraction.coverage" NAME="Error_Processing Coverage Results" MODIFIED="1586816018228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DataManipulationExtraction/src" />
   </component>
 </project>
