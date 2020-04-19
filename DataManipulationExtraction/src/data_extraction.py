@@ -357,5 +357,5 @@ q5 = get_error_arrays(q_ws_5, q_wb_5)
 #print("\n\n")
 
 all_errors = s1 + s2 + s3 + s4 + s5 + m1 + m2 + m3 + m4 + m5 + d1 + d2 + d3 + d4 + d5 + i1 + i2 + i3 + i4 + i5 + q1 + q2 + q3 + q4 + q5
-#for x in all_errors:
-#    print(x)
+for x in all_errors:
+    print(str(x) + ",")
