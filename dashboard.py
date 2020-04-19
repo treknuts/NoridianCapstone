@@ -9,7 +9,7 @@
 from tkinter import *
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas
-from fileupload import FileUpload
+from detailview import DetailPage
 
 
 class Dashboard(Frame):
@@ -18,6 +18,13 @@ class Dashboard(Frame):
         # master will be set to 'root' defined in the main method
         super().__init__(parent)
         self.parent = parent
+        self.frame = None
+        self.container = Frame(self.parent)
+        self.container.grid_columnconfigure(0, weight=1)
+        self.container.grid_rowconfigure(0, weight=1)
+        self.container.grid(row=0, column=0, sticky=NSEW)
+        self.background = Frame(self.container)
+        self.background.grid(row=0, column=0, sticky=NSEW)
         self.init_window()
 
     def init_window(self):
@@ -31,10 +38,10 @@ class Dashboard(Frame):
         self.create_category_label(0, 2, "60.8C9")
         self.create_category_label(0, 3, "60.8C13")
         self.create_category_label(0, 4, "60.8C4")
+
         self.frame1 = self.create_frame(1, 0)
         self.category_stat(self.frame1, 1, 0, 52)
         self.frame2 = self.create_frame(1, 1)
-
         self.category_stat(self.frame2, 1, 1, 33)
         self.frame3 = self.create_frame(1, 2)
         self.category_stat(self.frame3, 1, 2, 25)
@@ -44,22 +51,17 @@ class Dashboard(Frame):
         self.category_stat(self.frame5, 1, 4, 11)
 
         # Create scrollable canvas to put review category frames in
-        canvas = Canvas(self.parent)
-        scroll = Scrollbar(self.parent)
+        canvas = Canvas(self.background)
+        scroll = Scrollbar(self.background)
         self.categories_frame = Frame(canvas, width=600, height=100)
         self.categories_frame.grid(row=0, column=0, columnspan=5, sticky=NW, padx=10, pady=10)
 
         # Review type definitions
-        self.review_type1 = self.create_review_category(0)
-        self.review_type_info(self.review_type1, "Supervisor Review")
-        self.review_type2 = self.create_review_category(1)
-        self.review_type_info(self.review_type2, "Manager Review")
-        self.review_type2 = self.create_review_category(2)
-        self.review_type_info(self.review_type2, "Director Review")
-        self.review_type3 = self.create_review_category(3)
-        self.review_type_info(self.review_type3, "Inter Office Review")
-        self.review_type4 = self.create_review_category(4)
-        self.review_type_info(self.review_type4, "Technical/Quality Assurance Review")
+        self.review_type1 = self.create_review_category(0, "Supervisor Review")
+        self.review_type2 = self.create_review_category(1, "Manager Review")
+        self.review_type2 = self.create_review_category(2, "Director Review")
+        self.review_type3 = self.create_review_category(3, "Inter Office Review")
+        self.review_type4 = self.create_review_category(4, "Technical/Quality Assurance Review")
 
         # Create the canvas window
         canvas.create_window(0, 0, anchor=E, window=self.categories_frame)
@@ -71,12 +73,12 @@ class Dashboard(Frame):
         canvas.yview_moveto(0)
 
     def create_category_label(self, row, col, text):
-        self.label1 = Label(self.parent, text=text, anchor=CENTER)
+        self.label1 = Label(self.background, text=text, anchor=CENTER)
         self.label1.config(width=10, font=("Courier", 20))
         self.label1.grid(sticky=NW, column=col, row=row, padx=5, pady=5)
 
     def create_frame(self, row, col):
-        self.frame = Frame(self.parent, bd=2, width=20, relief=SUNKEN)
+        self.frame = Frame(self.background, bd=2, width=20, relief=SUNKEN)
         self.frame.grid(sticky=NW, column=col, row=row, columnspan=2, padx=10, pady=10)
         return self.frame
 
@@ -85,17 +87,18 @@ class Dashboard(Frame):
         self.stat1.config(width=6, height=3, font=("Courier", 44), fg='Red')
         self.stat1.grid(row=row, column=col)
 
-    def create_review_category(self, row):
+    def create_review_category(self, row, value):
         self.review_cat = Frame(self.categories_frame, bd=2, relief=SUNKEN)
         self.review_cat.grid(columnspan=6, row=row, padx=10, pady=10)
-        return self.review_cat
-
-    def review_type_info(self, frame, value):
-        # Review type heading
-        self.review = Label(frame, text=value, anchor=NW)
+        self.review = Label(self.review_cat, text=value, anchor=NW)
+        title = self.review.cget("text")
+        details_btn = Button(self.review_cat, text="View Details", command=lambda: self.show_frame(DetailPage,
+                                                                                                   self.container,
+                                                                                                   title))
+        details_btn.grid(row=1, column=0)
         self.review.config(width=35, height=3, font=("Courier", 44))
         self.review.grid(sticky=NW, column=0, row=0, padx=5, pady=5)
-        self.canvas = self.create_pie_chart(frame)
+        self.canvas = self.create_pie_chart(self.review_cat)
         self.canvas.draw()
 
     # This currently has data hardcoded in for demonstration purposes
@@ -114,6 +117,14 @@ class Dashboard(Frame):
         canvas = FigureCanvas(fig, frame)
         canvas.get_tk_widget().grid(column=1, row=0)
         return canvas
+
+    def show_frame(self, class_name, cont, review_type):
+        new_frame = class_name(cont, review_type)
+        if self.frame is not None:
+            self.frame.destroy()
+        self.frame = new_frame
+        self.frame.grid(row=0, column=0, sticky=NSEW)
+
 
 
 if __name__ == '__main__':

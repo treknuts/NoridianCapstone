@@ -4,32 +4,41 @@ from fileupload import FileUpload
 
 
 class Navbar(Frame):
-    def __init__(self, master=None):
-        super().__init__(master)
-        self.master = master
-        self.init_window()
-        self.file_upload = FileUpload(self.master)
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+        self.frame = None
+        container = Frame(self.parent)
+        container.grid_columnconfigure(0, weight=1)
+        container.grid_rowconfigure(0, weight=1)
+        container.grid(row=0, column=0, sticky=NSEW)
 
-    def init_window(self):
-        menu = Menu(self.master)
+        menu = Menu(container)
 
         navigation = Menu(menu)
-        navigation.add_command(label="Dashboard", command=self.open_dashboard)
-        navigation.add_command(label="File Upload", command=self.open_fileupload)
-        navigation.add_command(label="Exit", command=self.master.quit)
+        navigation.add_command(label="Dashboard", command=lambda: self.show_frame(Dashboard, container))
+        navigation.add_command(label="File Upload", command=lambda: self.show_frame(FileUpload, container))
+        navigation.add_command(label="Exit", command=self.parent.quit)
         menu.add_cascade(label="Navigation", menu=navigation)
+        self.parent.config(menu=menu)
 
-        self.master.config(menu=menu)
+        self.frames = {}
+        file_upload = FileUpload(container)
+        dashboard = Dashboard(container)
+        self.frames["fileupload"] = file_upload
+        self.frames["dashboard"] = dashboard
 
-    def open_dashboard(self):
-        self.dashboard = Dashboard(self.master)
-        self.file_upload.quit()
-        return self.dashboard
+        # file_upload.grid(row=0, column=0, sticky=NSEW)
+        # dashboard.grid(row=0, column=0, sticky=NSEW)
 
-    def open_fileupload(self):
-        self.file_upload = FileUpload(self.master)
-        self.dashboard.quit()
-        return self.file_upload
+        self.show_frame(FileUpload, container)
+
+    def show_frame(self, frame_class, cont):
+        new_frame = frame_class(cont)
+        if self.frame is not None:
+            self.frame.destroy()
+        self.frame = new_frame
+        self.frame.grid(row=0, column=0, sticky=NSEW)
 
 
 if __name__ == '__main__':
