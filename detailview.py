@@ -17,18 +17,18 @@ class DetailPage(Frame):
         title = Label(self.background, text=self.review_level, width=35, height=3, font=("Courier", 44), anchor=NW)
         title.grid(column=0, row=0, columnspan=3)
         # List of top 5 reviewers
-        reviewer_label = Label(self.background, text="Top 5 Reviewers", font=("Courier", 18))
+        reviewer_label = Label(self.background, text="Top 5 Reviewers", font=("Courier", 24))
         reviewer_label.grid(column=0, row=1)
-        top_reviewers = Listbox(self.background)
-        top_reviewers.grid(column=0, row=2)
+        top_reviewers = Listbox(self.background, font=("Courier", 18))
+        top_reviewers.grid(column=0, row=2, rowspan=3)
         reviewers = ["John Doe", "Jane Doe", "Bob Smith", "Mary Anderson", "Bill Williams"]
         for r in reviewers:
             top_reviewers.insert(END, r)
 
-        auditor_label = Label(self.background, text="Top 5 Auditors", font=("Courier", 18))
-        auditor_label.grid(column=0, row=3)
-        top_auditors = Listbox(self.background)
-        top_auditors.grid(column=0, row=4)
+        auditor_label = Label(self.background, text="Top 5 Auditors", font=("Courier", 24))
+        auditor_label.grid(column=0, row=5)
+        top_auditors = Listbox(self.background, font=("Courier", 18))
+        top_auditors.grid(column=0, row=6, rowspan=3)
         auditors = ["John Doe", "Jane Doe", "Bob Smith", "Mary Anderson", "Bill Williams"]
         for a in auditors:
             top_auditors.insert(END, a)
@@ -44,7 +44,7 @@ class DetailPage(Frame):
         ax.plot(labels, sizes)
 
         canvas = FigureCanvas(fig, self.background)
-        canvas.get_tk_widget().grid(column=1, row=1, rowspan=4, sticky=NE)
+        canvas.get_tk_widget().grid(column=1, row=1, rowspan=8, sticky=NE)
         return canvas
 
 

@@ -1,0 +1,80 @@
+from tkinter import *
+from tkinter.ttk import Combobox
+from tkcalendar import DateEntry
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas
+
+
+class DataVisualization(Frame):
+    def __init__(self, parent=None):
+        self.parent = parent
+        self.background = Frame(self.parent)
+        self.background.grid(row=0, column=0, sticky=NSEW)
+        self.init_window()
+
+    def init_window(self):
+        # List of top 5 reviewers giving out review points
+        reviewer_frame = LabelFrame(self.background, text="Top 5 Reviewers", font=("Courier", 24))
+        reviewer_frame.grid(row=0, column=0)
+        top_reviewers = Listbox(reviewer_frame, font=("Courier", 18))
+        top_reviewers.grid(row=0, column=0)
+        reviewers = [["name1", 8], ["name2", 7], ["name3", 6], ["name4", 4], ["name5", 3]]
+        for r in reviewers:
+            top_reviewers.insert(END, "{}             {}".format(r[0], r[1]))
+
+        # List of top 5 reviewers receiving review points
+        auditor_frame = LabelFrame(self.background, text="Top 5 Auditors", font=("Courier", 24))
+        auditor_frame.grid(row=1, column=0)
+        top_auditors = Listbox(auditor_frame, font=("Courier", 18))
+        top_auditors.grid(row=0, column=0)
+        auditors = [["name1", 8], ["name2", 7], ["name3", 6], ["name4", 4], ["name5", 3]]
+        for a in auditors:
+            top_auditors.insert(END, "{}             {}".format(a[0], a[1]))
+
+        # Filter options
+        review_levels = ["Supervisor Review", "Manager Review", "Director Review", "Inter-office Review", "Technical/Quality Assurance Review"]
+        review_level_combo = Combobox(self.background)
+        review_level_combo['values'] = review_levels
+        review_level_combo.grid(row=0, column=1)
+
+        # TODO: Get the date value from the start and end date filter options. Pass these values to update data.
+
+        #def show_date():
+            # start_date.set(start_date_select.get_date())
+
+
+        start_label = LabelFrame(self.background, text="Start Date")
+        start_label.grid(row=1, column=1)
+        start_date_select = DateEntry(start_label, locale='en_US', date_pattern='MM/dd/yyyy')
+        start_date_select.grid(row=0, column=0)
+        # start_date_select.bind('<<DateEntrySelected>>', show_date())
+
+        # start_date = Label(start_label, text=show_date())
+
+        end_label = LabelFrame(self.background, text="End Date")
+        end_label.grid(row=2, column=1)
+        end_date = DateEntry(end_label, locale='en_US', date_pattern='MM/dd/yyyy')
+        end_date.grid(row=0, column=0)
+
+        self.create_graph()
+
+    def create_graph(self):
+        fig = Figure(figsize=(10, 7), dpi=100)
+        ax = fig.add_subplot(111)
+        labels = ['01/01/20', '1/15/20', '1/31/20', '02/01/20']
+        sizes = [52, 33, 42, 60]
+        # explode = (0.1, 0, 0, 0)
+        ax.plot(labels, sizes)
+
+        canvas = FigureCanvas(fig, self.background)
+        canvas.get_tk_widget().grid(column=2, row=0, rowspan=8, sticky=NE)
+        return canvas
+
+
+if __name__ == '__main__':
+    root = Tk()
+    root.title("Noridian Capstone App")
+    root.geometry("1900x1000")
+    root.configure(background='white')
+    app = DataVisualization(root)
+    mainloop()
