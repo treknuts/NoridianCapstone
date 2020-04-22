@@ -1,3 +1,7 @@
+# Author: Trevor Knutson
+# Created on: 03/19/2020
+# Description: A more detailed view than the dashboard. Filter options to refine search.
+
 from tkinter import *
 from tkinter.ttk import Combobox
 from tkcalendar import DateEntry
@@ -33,17 +37,37 @@ class DataVisualization(Frame):
             top_auditors.insert(END, "{}             {}".format(a[0], a[1]))
 
         # Filter options
+
+        # Filter by error type
+        def get_error(entry):
+            print(error_entry.get())
+
+        error_label = LabelFrame(self.background, text="Filter by a specific error")
+        error_label.grid(row=0, column=1)
+
+        error = StringVar()
+        entry_label = Label(error_label, text="Error code: ")
+        entry_label.grid(row=0, column=0)
+        error_entry = Entry(error_label, textvariable=error)
+        error_entry.grid(row=0, column=1)
+
+        error_btn = Button(entry_label, text="Set Error", command=lambda: get_error(error_entry))
+        error_btn.grid(row=1, column=0)
+
+        # Filter by review level
         def get_review_level(combo):
             print(combo.get())
 
-        review_label = LabelFrame(self.background)
-        review_label.grid(row=0, column=1)
+        review_label = LabelFrame(self.background, text="Filter by Review level")
+        review_label.grid(row=1, column=1)
+
         review_levels = ["Supervisor Review", "Manager Review", "Director Review", "Inter-office Review", "Technical/Quality Assurance Review"]
+
         review_level_combo = Combobox(review_label)
         review_level_combo['values'] = review_levels
         review_level_combo.grid(row=0, column=1)
 
-        review_btn = Button(review_label, text="Set Review Level", command=lambda :get_review_level(review_level_combo))
+        review_btn = Button(review_label, text="Set Review Level", command=lambda: get_review_level(review_level_combo))
         review_btn.grid(row=1, column=1)
 
         # TODO: Get the data from the input options to filter the data and display it accordingly.
@@ -54,7 +78,7 @@ class DataVisualization(Frame):
 
         # Filter by date
         date_label = LabelFrame(self.background, text="Filter by Date")
-        date_label.grid(row=1, column=1)
+        date_label.grid(row=2, column=1)
 
         start_label = Label(date_label, text="Start Date")
         start_label.grid(row=0, column=0)

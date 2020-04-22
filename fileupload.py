@@ -1,3 +1,7 @@
+# Author: Trevor Knutson
+# Created on: 04/15/2020
+# Description: This page allows users to upload a file from there file system to be put into the database.
+
 from tkinter import *
 from tkinter import filedialog
 from tkinter import messagebox

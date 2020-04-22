@@ -1,3 +1,8 @@
+# Author: Trevor Knutson
+# Created on: 04/17/2020
+# Description: Detailed view for a given review level. These pages are the same as details general but the review
+#              level is already refined.
+
 from tkinter import *
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas

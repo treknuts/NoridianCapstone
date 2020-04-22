@@ -1,3 +1,7 @@
+# Author: Trevor Knutson
+# Created on: 04/15/2020
+# Description: The application's main entry point. The menu at the top allows navigation to all other views.
+
 from tkinter import *
 from dashboard import Dashboard
 from fileupload import FileUpload
