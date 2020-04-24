@@ -749,10 +749,12 @@ errors = [
 # ['QUALITY REVIEW', 'ABC Hospital', 'XX-XXXX', '12/31/2033', 'Quality Reviewer: Carrie Ann', 'Supervisor: Abe Conner', 'Auditor: Misha King', '5/6/2020', 'Sample', 12.0, 'Sample', '', '60.8C1']
 
 # Method to return top 5 errors in database
-def get_top_five_errors(a):
+def get_top_five_errors(a, **kwargs):
     error_types = []
     for x in a:
-        if x[12] != "NA" and x[12] != "n/a" and x[12] != "":
+        if x[0] == kwargs.get("review_level"):
+            error_types.append(x[12])
+        elif (x[12] != "NA" and x[12] != "n/a" and x[12] != "") and kwargs.get("review_level") is None:
             error_types.append(x[12])
 
     # Gets an array of top 5 errors with error type and frequency
@@ -770,9 +772,9 @@ def get_top_five_errors(a):
 
 
 # TEST AND OUTPUT FOR get_top_five_errors
-test = get_top_five_errors(errors)
-print("Top five errors UDR/Exhibit Step/IOM Chap 8 Ref overall:")
-print(test)
+#test = get_top_five_errors(errors, "SUPERVISOR REVIEW")
+#print("Top five errors UDR/Exhibit Step/IOM Chap 8 Ref overall:")
+#print(test)
 
 print("\n\n")
 
@@ -783,7 +785,7 @@ def get_top_five_supervisor_errors(a):
         if x[0] == 'SUPERVISORY REVIEW':
             supervisor_errors.append(x)
 
-    return get_top_five_errors(supervisor_errors)
+    return get_top_five_errors(supervisor_errors, review_level="SUPERVISOR REVIEW")
 
 
 # OUTPUT for get_top_five_supervisor_errors
@@ -800,7 +802,7 @@ def get_top_five_manager_errors(a):
         if x[0] == 'MANAGER REVIEW':
             manager_errors.append(x)
 
-    return get_top_five_errors(manager_errors)
+    return get_top_five_errors(manager_errors, review_level="MANAGER REVIEW")
 
 
 # OUTPUT for get_top_five_manager_errors
@@ -817,7 +819,7 @@ def get_top_five_director_errors(a):
         if x[0] == 'DIRECTOR REVIEW':
             director_errors.append(x)
 
-    return get_top_five_errors(director_errors)
+    return get_top_five_errors(director_errors, review_level="DIRECTOR REVIEW")
 
 
 # OUTPUT for get_top_five_supervisor_errors
@@ -834,7 +836,7 @@ def get_top_five_quality_errors(a):
         if x[0] == 'QUALITY REVIEW':
             quality_reviewers.append(x)
 
-    return get_top_five_errors(quality_reviewers)
+    return get_top_five_errors(quality_reviewers, review_level='QUALITY REVIEW')
 
 # TEST get_top_five_quality_errors
 print("Test for get_top_five_quality_errors")
@@ -850,7 +852,7 @@ def get_top_five_interoffice_errors(a):
         if x[0] == 'Inter-office file review':
             interoffice_errors.append(x)
 
-    return get_top_five_errors(interoffice_errors)
+    return get_top_five_errors(interoffice_errors, review_level='Inter-office file review')
 
 # TEST get_top_five_interoffice_errors
 print("Test for get_top_five_interoffice_errors")

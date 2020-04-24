@@ -6,6 +6,7 @@ from tkinter import *
 from dashboard import Dashboard
 from fileupload import FileUpload
 from detailsgeneral import DataVisualization
+from dataVisualization import errors
 
 
 class Navbar(Frame):
@@ -17,6 +18,8 @@ class Navbar(Frame):
         container.grid_columnconfigure(0, weight=1)
         container.grid_rowconfigure(0, weight=1)
         container.grid(row=0, column=0, sticky=NSEW)
+
+        self.data = errors
 
         menu = Menu(container)
 
@@ -52,7 +55,7 @@ class Navbar(Frame):
 if __name__ == '__main__':
     root = Tk()
     root.title("Noridian Capstone App")
-    root.geometry("1900x1000")
+    root.geometry("1825x875")
     root.configure(background='white')
     navbar = Navbar(root)
     mainloop()
