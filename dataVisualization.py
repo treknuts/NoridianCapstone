@@ -991,8 +991,29 @@ def get_errors_by_review_type(a, type):
     return errors_by_type
 
 # TEST get_errors_by_review_type
-print("Test for getting errors by review type")
+print("Test for getting errors by supervisory review")
 t4 = get_errors_by_review_type(errors, "SUPERVISORY REVIEW")
+for x in t4:
+    print(x)
+
+print("\n\n")
+
+print("Test for getting errors by quality review")
+t4 = get_errors_by_review_type(errors, "QUALITY REVIEW")
+for x in t4:
+    print(x)
+
+print("\n\n")
+
+print("Test for getting errors by inter-office file review")
+t4 = get_errors_by_review_type(errors, "Inter-office file review")
+for x in t4:
+    print(x)
+
+print("\n\n")
+
+print("Test for getting errors by director review")
+t4 = get_errors_by_review_type(errors, "DIRECTOR REVIEW")
 for x in t4:
     print(x)
 
