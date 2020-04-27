@@ -10,6 +10,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas
 import dataVisualization as dv
 
 
+# TODO: Line graph y-axis is plotting the wrong data. It needs to plot the amount of errors at the time on the x-axis
+
 class DataVisualization(Frame):
     def __init__(self, parent):
         super().__init__(parent)
@@ -20,35 +22,43 @@ class DataVisualization(Frame):
 
     def init_window(self):
 
+        # TODO: redraw the page once filter options are set
         def set_filter_options(error_name, review, date1, date2):
             if error_name is not None:
                 print(get_error())
             if review is not None:
                 print(get_review_level(review))
+                self.reviewer_frame.after(100, self.reviewer_frame.destroy())
+                create_top_five(dv.errors, get_review_level(review))
+                self.pie_frame.after(100, self.pie_frame.destroy())
+                self.create_pie_chart(get_review_level(review))
+            elif review is None:
+                # TODO: This is bugged. Doesn't redraw frames right
+                self.reviewer_frame.after(100, self.reviewer_frame.destroy())
+                create_top_five(dv.errors, None)
+                self.pie_frame.after(100, self.pie_frame.destroy())
+                self.create_pie_chart(None)
             if date1 is not None and date2 is not None:
                 print(get_date(date1, date2))
 
-        # List of top 5 reviewers giving out review points
-        reviewer_frame = LabelFrame(self.background, text="Top 5 Reviewers", font=("Courier", 24))
-        reviewer_frame.grid(row=0, column=0)
-        top_reviewers = Listbox(reviewer_frame, width=50, height=5, font=("Courier", 14))
-        top_reviewers.grid(row=0, column=0)
-        reviewers = dv.get_top_five_reviewers(dv.errors)
-        for r in reviewers:
-            top_reviewers.insert(END, "{} -> {} points given".format(r[0], r[1]))
+        def create_top_five(data, review_level=None):
+            self.reviewer_frame = Frame(self.background)
+            self.reviewer_frame.grid(row=0, column=0)
+            reviewer_label = LabelFrame(self.reviewer_frame, text="Top 5 Reviewers", font=("Courier", 24))
+            reviewer_label.grid(row=0, column=0)
+            if review_level is not None:
+                reviewers = dv.get_top_five_reviewers_by_type(data, review_level)
+            else:
+                reviewers = dv.get_top_five_reviewers(data)
+            top_reviewers = Listbox(reviewer_label, width=50, height=5, font=("Courier", 14))
+            top_reviewers.grid(row=0, column=0)
+            for r in reviewers:
+                top_reviewers.insert(END, "{} -> {} points given".format(r[0], r[1]))
 
-        # List of top 5 reviewers receiving review points
-        #auditor_frame = LabelFrame(self.background, text="Top 5 Auditors", font=("Courier", 24))
-        #auditor_frame.grid(row=1, column=0)
-        #top_auditors = Listbox(auditor_frame, font=("Courier", 18))
-        #top_auditors.grid(row=0, column=0)
-        #auditors = dv.get_top_fi
-        #for a in auditors:
-            #top_auditors.insert(END, "{}             {}".format(a[0], a[1]))
+        create_top_five(dv.errors)
 
         # Filter options
-
-        filter_frame = LabelFrame(self.background, text="Filter Options", font=("Courier", 16))
+        filter_frame = LabelFrame(self.background, height=2, text="Filter Options", font=("Courier", 16))
         filter_frame.grid(row=0, column=1, ipadx=20, ipady=10, sticky=NSEW)
 
         # Filter by error type
@@ -71,17 +81,16 @@ class DataVisualization(Frame):
         review_label = LabelFrame(filter_frame, text="Filter by Review level")
         review_label.grid(row=0, column=1, padx=5, pady=5)
 
-        review_levels = ["Supervisor Review",
-                         "Manager Review",
-                         "Director Review",
-                         "Inter-office Review",
-                         "Technical/Quality Assurance Review"]
+        review_levels = [None,
+                         "SUPERVISORY REVIEW",
+                         "MANAGER REVIEW",
+                         "DIRECTOR REVIEW",
+                         "Inter-office file review",
+                         "QUALITY REVIEW"]
 
         review_level_combo = Combobox(review_label)
         review_level_combo['values'] = review_levels
         review_level_combo.grid(row=0, column=1)
-
-        # TODO: Get the data from the input options to filter the data and display it accordingly.
 
         def get_date(date1, date2):
             return "Start date: {}\nEnd date: {}".format(date1.get_date(), date2.get_date())
@@ -116,21 +125,32 @@ class DataVisualization(Frame):
         self.create_pie_chart()
 
     def create_graph(self):
-        fig = Figure(figsize=(8, 4), dpi=100)
+        self.line_frame = Frame(self.background)
+        self.line_frame.grid(row=1, column=1)
+        fig = Figure(figsize=(9, 6), dpi=100)
         ax = fig.add_subplot(111)
-        labels = ['01/01/20', '1/15/20', '1/31/20', '02/01/20']
-        sizes = [52, 33, 42, 60]
-        # explode = (0.1, 0, 0, 0)
+        # Create an array of dates to find the oldest and newest dates
+
+        data = dv.sort_by_date(dv.errors)
+        labels = []
+        sizes = []
+        for k in data:
+            labels.append(k[7])
+            sizes.append(k[9])
         ax.plot(labels, sizes)
+        ax.set_xticklabels(labels=labels, rotation=45)
+        self.canvas = FigureCanvas(fig, self.line_frame)
+        self.canvas.get_tk_widget().grid(column=0, row=0, rowspan=2, sticky=E)
 
-        canvas = FigureCanvas(fig, self.background)
-        canvas.get_tk_widget().grid(column=1, row=1, rowspan=2, sticky=E)
-        return canvas
-
-    def create_pie_chart(self):
-        fig = Figure(figsize=(8, 4), dpi=100)
+    def create_pie_chart(self, review_level=None):
+        self.pie_frame = Frame(self.background)
+        self.pie_frame.grid(row=1, column=0)
+        fig = Figure(figsize=(9, 6), dpi=100)
         ax = fig.add_subplot(111)
-        top_five = dv.get_top_five_errors(a=dv.errors)
+        if review_level is not None:
+            top_five = dv.get_top_five_errors(a=dv.errors, review_level=review_level)
+        else:
+            top_five = dv.get_top_five_errors(a=dv.errors)
         labels = []
         sizes = []
         for i in range(len(top_five)):
@@ -140,8 +160,8 @@ class DataVisualization(Frame):
                 shadow=True, startangle=90)
         ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-        canvas = FigureCanvas(fig, self.background)
-        canvas.get_tk_widget().grid(column=1, row=3, rowspan=2, sticky=SE)
+        canvas = FigureCanvas(fig, self.pie_frame)
+        canvas.get_tk_widget().grid(column=0, row=0, rowspan=2, sticky=SE)
 
 
 if __name__ == '__main__':

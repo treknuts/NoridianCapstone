@@ -908,8 +908,8 @@ def get_top_five_reviewers_by_type(a, r_type):
     return net
 
 # OUTPUT for get_top_five_reviewers_by_type
-print("Test for get_top_five_reviewers_by_type using SUPERVISORY REVIEW")
-test6 = get_top_five_reviewers_by_type(errors, "SUPERVISORY REVIEW")
+print("Test for get_top_five_reviewers_by_type using MANAGER REVIEW")
+test6 = get_top_five_reviewers_by_type(errors, "MANAGER REVIEW")
 print(test6)
 
 print("\n\n")
@@ -1019,3 +1019,11 @@ for x in t5:
     print(x)
 
 print("\n\n")
+
+
+# Sort the object by their date. This method will be particularly useful for the line graph
+def sort_by_date(data):
+    return sorted(data, key=lambda error: error[7], reverse=False)
+
+
+print(sort_by_date(errors))
