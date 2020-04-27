@@ -16,7 +16,7 @@ def format_date(s):
     day = int(n[1])
     year = int(n[2])
 
-    return datetime.datetime(year, month, day)
+    return datetime.date(year, month, day)
 
 
 # SAMPLE DATA
@@ -952,10 +952,10 @@ def get_errors_by_review_date(a, d1, d2):
 
 # TEST get_errors_by_review_date
 # datetime.datetime(year, month, day)
-print("Test for getting errors by date:")
-t2 = get_errors_by_review_date(errors, datetime.datetime(2020, 1, 2), datetime.datetime(2020, 3, 3))
-for i in t2:
-    print(i)
+#print("Test for getting errors by date:")
+#t2 = get_errors_by_review_date(errors, datetime.datetime(2020, 1, 2), datetime.datetime(2020, 3, 3))
+#for i in t2:
+   # print(i)
 
 print("\n\n")
 
@@ -1020,7 +1020,7 @@ for x in t4:
 print("\n\n")
 
 # This returns errors based on any attributes you enter
-def get_errors_by_all_attributes(a, review_type, name, error_type, d1, d2):
+def get_errors_by_all_attributes(a, review_type, name=None, error_type=None, d1=None, d2=None):
     all_errors = a
     if review_type != "":
         all_errors = get_errors_by_review_type(all_errors, review_type)
@@ -1035,16 +1035,27 @@ def get_errors_by_all_attributes(a, review_type, name, error_type, d1, d2):
 # TEST get_errors_by_all_attributes
 # This returns errors arrays for Sisa Smith a manager between 1/1/2020 and 3/30/20
 print("Test for getting errors by all relevant attributes")
-t5 = get_errors_by_all_attributes(errors, "", "Sisa Smith", "", datetime.datetime(2020, 1, 1), datetime.datetime(2020, 3, 30))
-for x in t5:
-    print(x)
+#t5 = get_errors_by_all_attributes(errors, "", "Sisa Smith", "", datetime.datetime(2020, 1, 1), datetime.datetime(2020, 3, 30))
+#for x in t5:
+    #print(x)
 
-print("\n\n")
+#print("\n\n")
 
 
 # Sort the object by their date. This method will be particularly useful for the line graph
 def sort_by_date(data):
-    return sorted(data, key=lambda error: error[7], reverse=False)
+    sorted_dates = sorted(data, key=lambda error: error[7], reverse=False)
+    unique_dates = dict()
+    for x in sorted_dates:
+        if x[7] not in unique_dates:
+            unique_dates[x[7]] = 1
+        if x[7] in unique_dates:
+            unique_dates[x[7]] += 1
+    return unique_dates
 
 
 print(sort_by_date(errors))
+
+dates_test = get_errors_by_review_type(errors, "SUPERVISORY REVIEW")
+print(dates_test)
+print(sort_by_date(dates_test))

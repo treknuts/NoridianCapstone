@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d0328f8-920d-45bf-b151-54290eb01145" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/trevor.xml" beforeDir="false" />
+    <list default="true" id="0d0328f8-920d-45bf-b151-54290eb01145" name="Default Changelist" comment="Created employee lookup. Detail view and employee stats seemed too unrelated so employee lookup will be a separate little app. More work done calling DataVisualization code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataVisualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataVisualization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detailsgeneral.py" beforeDir="false" afterPath="$PROJECT_DIR$/detailsgeneral.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +121,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="detailview" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="employeelookup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guiTesting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -137,7 +134,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/detailview.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/employeelookup.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,13 +150,13 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\Trevor\Anaconda3\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\School\Capstone\NoridianCapstone\index.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/index.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -170,18 +167,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.dashboard" />
-      <item itemvalue="Python.detailview" />
-      <item itemvalue="Python.detailsgeneral" />
-      <item itemvalue="Python.dataVisualization" />
+      <item itemvalue="Python.employeelookup" />
       <item itemvalue="Python.index" />
+      <item itemvalue="Python.dataVisualization" />
+      <item itemvalue="Python.detailsgeneral" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.detailsgeneral" />
-        <item itemvalue="Python.index" />
         <item itemvalue="Python.dashboard" />
         <item itemvalue="Python.dataVisualization" />
-        <item itemvalue="Python.detailview" />
+        <item itemvalue="Python.index" />
+        <item itemvalue="Python.employeelookup" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +203,9 @@
       <workItem from="1587480941886" duration="3165000" />
       <workItem from="1587568536925" duration="7012000" />
       <workItem from="1587584883146" duration="8906000" />
-      <workItem from="1587732500735" duration="20033000" />
+      <workItem from="1587732500735" duration="21205000" />
+      <workItem from="1587936067478" duration="21245000" />
+      <workItem from="1587998975394" duration="19286000" />
     </task>
     <task id="LOCAL-00001" summary="Created a rough detail view and buttons on dashboard to navigate to their respective details page">
       <created>1587326183157</created>
@@ -229,7 +228,28 @@
       <option name="project" value="LOCAL" />
       <updated>1587590482682</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cleaned up Dashboard code and began calling backend functions on the frontend.">
+      <created>1587771924993</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587771924993</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created employee lookup. Detail view and employee stats seemed too unrelated so employee lookup will be a separate little app">
+      <created>1587968722496</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587968722496</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Created employee lookup. Detail view and employee stats seemed too unrelated so employee lookup will be a separate little app. More work done calling DataVisualization code">
+      <created>1587968762176</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587968762176</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +259,10 @@
     <MESSAGE value="Created a rough detail view and buttons on dashboard to navigate to their respective details page" />
     <MESSAGE value="Still need to be able to filter by IoM category, position, and person." />
     <MESSAGE value="Busy work. Added comments and filter by error name on the details general page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Busy work. Added comments and filter by error name on the details general page." />
+    <MESSAGE value="Cleaned up Dashboard code and began calling backend functions on the frontend." />
+    <MESSAGE value="Created employee lookup. Detail view and employee stats seemed too unrelated so employee lookup will be a separate little app" />
+    <MESSAGE value="Created employee lookup. Detail view and employee stats seemed too unrelated so employee lookup will be a separate little app. More work done calling DataVisualization code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created employee lookup. Detail view and employee stats seemed too unrelated so employee lookup will be a separate little app. More work done calling DataVisualization code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="245" y="78" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587143750348">
@@ -251,53 +274,53 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="115" key="#navbar/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587143738510" />
-    <state x="334" y="59" width="1278" height="864" key="CommitChangelistDialog2" timestamp="1587590476830">
+    <state x="334" y="59" width="1278" height="864" key="CommitChangelistDialog2" timestamp="1588002310396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="334" y="59" width="1278" height="864" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587590476830" />
-    <state width="1877" height="247" key="GridCell.Tab.0.bottom" timestamp="1587770536909">
+    <state x="334" y="59" width="1278" height="864" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588002310396" />
+    <state width="1877" height="304" key="GridCell.Tab.0.bottom" timestamp="1588030111702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
-    <state width="1877" height="247" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587770536909" />
+    <state width="1877" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588030111702" />
     <state width="1419" height="201" key="GridCell.Tab.0.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583436004465" />
-    <state width="1877" height="247" key="GridCell.Tab.0.center" timestamp="1587770536908">
+    <state width="1877" height="304" key="GridCell.Tab.0.center" timestamp="1588030111702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
-    <state width="1877" height="247" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587770536908" />
+    <state width="1877" height="304" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588030111702" />
     <state width="1419" height="201" key="GridCell.Tab.0.center/0.23.1440.797@0.23.1440.797" timestamp="1583436004464" />
-    <state width="1877" height="247" key="GridCell.Tab.0.left" timestamp="1587770536908">
+    <state width="1877" height="304" key="GridCell.Tab.0.left" timestamp="1588030111702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
-    <state width="1877" height="247" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587770536908" />
+    <state width="1877" height="304" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588030111702" />
     <state width="1419" height="201" key="GridCell.Tab.0.left/0.23.1440.797@0.23.1440.797" timestamp="1583436004463" />
-    <state width="1877" height="247" key="GridCell.Tab.0.right" timestamp="1587770536908">
+    <state width="1877" height="304" key="GridCell.Tab.0.right" timestamp="1588030111702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="244" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586452638429" />
-    <state width="1877" height="247" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587770536908" />
+    <state width="1877" height="304" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588030111702" />
     <state width="1419" height="201" key="GridCell.Tab.0.right/0.23.1440.797@0.23.1440.797" timestamp="1583436004464" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1587760280342">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1588019445551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587760280342" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588019445551" />
     <state width="1419" height="253" key="GridCell.Tab.1.bottom/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1587760280342">
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1588019445551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587760280342" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588019445551" />
     <state width="1419" height="253" key="GridCell.Tab.1.center/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1587760280342">
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1588019445551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587760280342" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588019445551" />
     <state width="1419" height="253" key="GridCell.Tab.1.left/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1587760280342">
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1588019445551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587760280342" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588019445551" />
     <state width="1419" height="253" key="GridCell.Tab.1.right/0.23.1440.797@0.23.1440.797" timestamp="1583433385001" />
     <state x="771" y="222" key="RollbackChangesDialog" timestamp="1587770370161">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -309,45 +332,40 @@
     <state x="295" y="48" key="SettingsEditor/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586451353292" />
     <state x="295" y="48" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587487299388" />
     <state x="221" y="60" key="SettingsEditor/0.23.1440.797@0.23.1440.797" timestamp="1583430076445" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1587590489363">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1587968769949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587590489363" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587968769949" />
     <state x="671" y="420" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587771867653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="671" y="420" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.-148.1920.1040@0.0.1920.1040" timestamp="1586447454291" />
     <state x="671" y="420" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587771867653" />
     <state x="503" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.797@0.23.1440.797" timestamp="1583430003944" />
-    <state x="643" y="47" key="refactoring.ChangeSignatureDialog" timestamp="1587313688303">
+    <state x="0" y="0" width="1627" height="1048" key="dock-window-1" timestamp="1587968778365">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="643" y="47" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587313688303" />
+    <state x="0" y="0" width="1627" height="1048" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587968778365" />
+    <state x="643" y="47" key="refactoring.ChangeSignatureDialog" timestamp="1587937916604">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="643" y="47" key="refactoring.ChangeSignatureDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587937916604" />
     <state x="482" y="59" key="refactoring.ChangeSignatureDialog/0.23.1440.797@0.23.1440.797" timestamp="1583177900155" />
-    <state x="513" y="158" width="894" height="883" key="search.everywhere.popup" timestamp="1587588363641">
+    <state x="513" y="158" width="894" height="883" key="search.everywhere.popup" timestamp="1588018283536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="513" y="158" width="894" height="883" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587588363641" />
+    <state x="513" y="158" width="894" height="883" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588018283536" />
     <state x="385" y="144" width="670" height="676" key="search.everywhere.popup/0.23.1440.797@0.23.1440.797" timestamp="1583435499871" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/dataVisualization.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NoridianCapstone$navbar.coverage" NAME="navbar Coverage Results" MODIFIED="1587482170260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NoridianCapstone$detailsgeneral.coverage" NAME="detailsgeneral Coverage Results" MODIFIED="1587770536904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NoridianCapstone$dataVisualization.coverage" NAME="dataVisualization Coverage Results" MODIFIED="1587742693967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NoridianCapstone$index.coverage" NAME="index Coverage Results" MODIFIED="1587760489721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NoridianCapstone$dashboard.coverage" NAME="dashboard Coverage Results" MODIFIED="1587760472201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/NoridianCapstone$detailview.coverage" NAME="detailview Coverage Results" MODIFIED="1587329981110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$detailsgeneral.coverage" NAME="detailsgeneral Coverage Results" MODIFIED="1588030111695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$dataVisualization.coverage" NAME="dataVisualization Coverage Results" MODIFIED="1588010727333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$employeelookup.coverage" NAME="employeelookup Coverage Results" MODIFIED="1587968416877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$index.coverage" NAME="index Coverage Results" MODIFIED="1588001519011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$after_test.coverage" NAME="after_test Coverage Results" MODIFIED="1587937527371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$dashboard.coverage" NAME="dashboard Coverage Results" MODIFIED="1588024455885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/NoridianCapstone$detailview.coverage" NAME="detailview Coverage Results" MODIFIED="1587967217974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/NoridianCapstone$file_upload.coverage" NAME="file-upload Coverage Results" MODIFIED="1586449779674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
