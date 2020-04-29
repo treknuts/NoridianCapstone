@@ -21,64 +21,50 @@ class DataVisualization(Frame):
         self.init_window()
 
     def init_window(self):
+        # TODO: redraw the widgets once filter options are set
+        def set_filter_options(error_name=None, review=None, date1=None, date2=None):
+            print("Filter options\nReview: \"{}\"\nError name: \"{}\"\nStart date: \"{}\"\nEnd date: \"{}\""
+                  .format(review,
+                          error_name,
+                          date1,
+                          date2))
+            # Get data based on date parameters. DateEntry objects will always have a date so we always filter by it.
+            data_by_date = dv.get_errors_by_review_date(self.data, date1, date2)
 
-        # TODO: redraw the page once filter options are set
-        def set_filter_options(error_name, review, date1, date2):
-            print(error_name)
-            if error_name != "" and review is not None:
-                data_by_error = dv.get_errors_by_error_type(self.data, error_name)
-                data_by_date = dv.get_errors_by_review_date(data_by_error, date1, date2)
-                print(data_by_error)
-                print(review)
-                self.line_frame.after(100, self.line_frame.destroy())
-                self.create_graph(data_by_date)
+            # Destroy the widgets that will need to be updated based on data
+            self.pie_frame.destroy()
+            self.line_frame.destroy()
+            self.reviewer_frame.destroy()
 
-                self.pie_frame.after(100, self.pie_frame.destroy())
-                self.show_num_error(data_by_date)
-            elif error_name != "":
-                data_by_error = dv.get_errors_by_error_type(self.data, error_name)
-                data_by_date = dv.get_errors_by_review_date(data_by_error, date1, date2)
-                self.pie_frame.after(100, self.pie_frame.destroy())
-                self.show_num_error(data_by_date)
-            elif review is not None and review != "None":
-                # Get the new dates if any
-                # The reason we filter by date regardless is because the DateEntry Widget can never be None.
-                data_by_date = dv.get_errors_by_review_date(self.data, date1, date2)
+            # Only review filter option was set
+            if review is not None and review != "None" and review != "" and error_name == "":
+                print("First if statement")
                 data_by_review = dv.get_errors_by_review_type(data_by_date, review)
-                # Destroy graph to update with new data
-                self.line_frame.after(100, self.line_frame.destroy())
-                # Create graph with new data
+                print("Data by review type: {}".format(data_by_review))
+                self.create_top_five(data_by_review)
                 self.create_graph(data_by_review)
-
-                self.reviewer_frame.after(100, self.reviewer_frame.destroy())
-                create_top_five(data_by_review, review)
-                self.pie_frame.after(100, self.pie_frame.destroy())
                 self.create_pie_chart(data_by_review, review)
-            elif review == "None":
-                # TODO: This is bugged. Doesn't redraw frames right
-                self.pie_frame.after(100, self.pie_frame.destroy())
-                self.line_frame.after(100, self.line_frame.destroy())
-                self.reviewer_frame.after(100, self.reviewer_frame.destroy())
-
-                self.create_pie_chart(self.data)
-                self.create_graph(self.data)
-                create_top_five(self.data)
-
-        def create_top_five(data, review_level=None):
-            self.reviewer_frame = Frame(self.background)
-            self.reviewer_frame.grid(row=0, column=0)
-            reviewer_label = LabelFrame(self.reviewer_frame, text="Top 5 Reviewers", font=("Courier", 24))
-            reviewer_label.grid(row=0, column=0)
-            if review_level is not None:
-                reviewers = dv.get_top_five_reviewers_by_type(data, review_level)
+            # Only error type filter option was set
+            elif error_name != "":
+                print("Second if statement")
+                data_by_error = dv.get_errors_by_error_type(data_by_date, error_name)
+                self.create_top_five(data_by_error)
+                self.create_graph(data_by_error)
+                self.show_num_error(data_by_error)
+            # Review and error name were set
+            elif error_name != "" and review is not None:
+                print("Third if statement")
+                # Filter down to only get errors of the specified review type
+                data_by_review = dv.get_top_five_reviewers_by_type(data_by_date, review)
+                # Filter the data filtered by review to only get errors of the specified type
+                data_by_error = dv.get_errors_by_error_type(data_by_review, error_name)
+                self.create_top_five(data_by_error)
+                self.create_graph(data_by_error)
+                self.show_num_error(data_by_error)
             else:
-                reviewers = dv.get_top_five_reviewers(data)
-            top_reviewers = Listbox(reviewer_label, width=50, height=5, font=("Courier", 14))
-            top_reviewers.grid(row=0, column=0)
-            for r in reviewers:
-                top_reviewers.insert(END, "{} -> {} points given".format(r[0], r[1]))
-
-        create_top_five(self.data)
+                self.create_top_five(data_by_date)
+                self.create_graph(data_by_date)
+                self.create_pie_chart(data_by_date)
 
         # Filter options
         filter_frame = LabelFrame(self.background, height=2, text="Filter Options", font=("Courier", 16))
@@ -96,8 +82,7 @@ class DataVisualization(Frame):
         review_label = LabelFrame(filter_frame, text="Filter by Review level")
         review_label.grid(row=0, column=1, padx=5, pady=5)
 
-        review_levels = [None,
-                         "SUPERVISORY REVIEW",
+        review_levels = ["SUPERVISORY REVIEW",
                          "MANAGER REVIEW",
                          "DIRECTOR REVIEW",
                          "Inter-office file review",
@@ -137,8 +122,23 @@ class DataVisualization(Frame):
                             )
         filter_btn.grid(row=1, column=1)
 
+        self.create_top_five(self.data)
         self.create_graph(self.data)
         self.create_pie_chart(self.data)
+
+    def create_top_five(self, data, review_level=None):
+        self.reviewer_frame = Frame(self.background)
+        self.reviewer_frame.grid(row=0, column=0)
+        reviewer_label = LabelFrame(self.reviewer_frame, text="Top 5 Reviewers", font=("Courier", 24))
+        reviewer_label.grid(row=0, column=0)
+        if review_level is not None:
+            reviewers = dv.get_top_five_reviewers_by_type(data, review_level)
+        else:
+            reviewers = dv.get_top_five_reviewers(data)
+        top_reviewers = Listbox(reviewer_label, width=50, height=5, font=("Courier", 14))
+        top_reviewers.grid(row=0, column=0)
+        for r in reviewers:
+            top_reviewers.insert(END, "{} -> {} points given".format(r[0], r[1]))
 
     def create_graph(self, data):
         self.line_frame = Frame(self.background)
@@ -156,17 +156,13 @@ class DataVisualization(Frame):
         self.canvas = FigureCanvas(fig, self.line_frame)
         self.canvas.get_tk_widget().grid(column=0, row=0, rowspan=2, sticky=E)
 
-    def create_pie_chart(self, data, review_level=None):
+    def create_pie_chart(self, data, review=None):
         self.pie_frame = Frame(self.background)
         self.pie_frame.grid(row=1, column=0)
         fig = Figure(figsize=(9, 6), dpi=100)
         ax = fig.add_subplot(111)
-        if review_level is not None:
-            top_five = dv.get_top_five_errors(a=data, review_level=review_level)
-            print(top_five)
-        else:
-            top_five = dv.get_top_five_errors(a=data)
-            print(top_five)
+        top_five = dv.get_top_five_errors(data, review_level=review)
+        print("Top five: {}".format(top_five))
         labels = []
         sizes = []
         for i in range(len(top_five)):

@@ -102,11 +102,11 @@ class DetailPage(Frame):
         # Create an array of dates to find the oldest and newest dates
 
         data = dv.sort_by_date(dv.errors)
-        labels = []
+        print("data: {}".format(data))
+        labels = data.keys()
         sizes = []
-        for k in data:
-            labels.append(k[7])
-            sizes.append(k[9])
+        for k in labels:
+            sizes.append(data.get(k))
         ax.plot(labels, sizes)
         ax.set_xticklabels(labels=labels, rotation=45)
         self.canvas = FigureCanvas(fig, self.background)

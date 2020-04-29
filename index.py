@@ -29,7 +29,6 @@ class Navbar(Frame):
         navigation.add_command(label="Dashboard", command=lambda: self.show_frame(Dashboard, container))
         navigation.add_command(label="Details", command=lambda: self.show_frame(DataVisualization, container))
         # navigation.add_command(label="Employee Lookup", command=lambda: self.show_frame(EmployeeLookup, container))
-        navigation.add_command(label="Exit", command=self.parent.quit)
         menu.add_cascade(label="Navigation", menu=navigation)
         self.parent.config(menu=menu)
 
@@ -59,7 +58,7 @@ class Navbar(Frame):
 
 if __name__ == '__main__':
     root = Tk()
-    root.title("Noridian Capstone App")
+    root.title("Audit Error Tracker")
     root.geometry("1825x875")
     root.configure(background='white')
     navbar = Navbar(root)
