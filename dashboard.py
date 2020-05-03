@@ -135,7 +135,6 @@ class Dashboard(Frame):
         self.frame.grid(row=0, column=0, sticky=NSEW)
 
 
-
 if __name__ == '__main__':
     root = Tk()
     root.title("Noridian Capstone App")

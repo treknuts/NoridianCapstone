@@ -4,11 +4,14 @@
 
 from tkinter import *
 from tkinter.ttk import Combobox
+
+from tkinter import messagebox
 from tkcalendar import DateEntry
 from datetime import datetime
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas
 import dataVisualization as dv
+from employeelookup import EmployeeLookup
 
 
 class DataVisualization(Frame):
@@ -41,14 +44,14 @@ class DataVisualization(Frame):
                 print("First if statement")
                 data_by_review = dv.get_errors_by_review_type(data_by_date, review)
                 print("Data by review type: {}".format(data_by_review))
-                self.create_top_five(data_by_review)
+                self.show_reviewers(data_by_review)
                 self.create_graph(data_by_review)
                 self.create_pie_chart(data_by_review, review)
             # Only error type filter option was set
             elif error_name != "":
                 print("Second if statement")
                 data_by_error = dv.get_errors_by_error_type(data_by_date, error_name)
-                self.create_top_five(data_by_error)
+                self.show_reviewers(data_by_error)
                 self.create_graph(data_by_error)
                 self.show_num_error(data_by_error)
             # Review and error name were set
@@ -58,11 +61,11 @@ class DataVisualization(Frame):
                 data_by_review = dv.get_top_five_reviewers_by_type(data_by_date, review)
                 # Filter the data filtered by review to only get errors of the specified type
                 data_by_error = dv.get_errors_by_error_type(data_by_review, error_name)
-                self.create_top_five(data_by_error)
+                self.show_reviewers(data_by_error)
                 self.create_graph(data_by_error)
                 self.show_num_error(data_by_error)
             else:
-                self.create_top_five(data_by_date)
+                self.show_reviewers(data_by_date)
                 self.create_graph(data_by_date)
                 self.create_pie_chart(data_by_date)
 
@@ -122,14 +125,29 @@ class DataVisualization(Frame):
                             )
         filter_btn.grid(row=1, column=1)
 
-        self.create_top_five(self.data)
+        employee_frame = LabelFrame(filter_frame, text="Employee Lookup")
+        employee_frame.grid(row=0, column=3)
+
+        emp_entry_label = Label(employee_frame, text="Employee Name: ")
+        emp_entry_label.grid(row=0, column=0)
+
+        employee_name = StringVar()
+        employee_entry = Entry(employee_frame, textvariable=employee_name)
+        employee_entry.grid(row=0, column=1)
+
+        lookup_btn = Button(employee_frame,
+                            text="Lookup Employee",
+                            command=lambda: self.open_employee_lookup(employee_entry.get()))
+        lookup_btn.grid(row=1, column=1)
+
+        self.show_reviewers(self.data)
         self.create_graph(self.data)
         self.create_pie_chart(self.data)
 
-    def create_top_five(self, data, review_level=None):
+    def show_reviewers(self, data, review_level=None):
         self.reviewer_frame = Frame(self.background)
         self.reviewer_frame.grid(row=0, column=0)
-        reviewer_label = LabelFrame(self.reviewer_frame, text="Top 5 Reviewers", font=("Courier", 24))
+        reviewer_label = LabelFrame(self.reviewer_frame, text="Reviewers", font=("Courier", 24))
         reviewer_label.grid(row=0, column=0)
         if review_level is not None:
             reviewers = dv.get_top_five_reviewers_by_type(data, review_level)
@@ -162,7 +180,7 @@ class DataVisualization(Frame):
         fig = Figure(figsize=(9, 6), dpi=100)
         ax = fig.add_subplot(111)
         top_five = dv.get_top_five_errors(data, review_level=review)
-        print("Top five: {}".format(top_five))
+        # print("Top five: {}".format(top_five))
         labels = []
         sizes = []
         for i in range(len(top_five)):
@@ -183,6 +201,21 @@ class DataVisualization(Frame):
         num_errors = len(data)
         num_errors_label = Label(self.pie_frame, text="{} : {}".format(error, num_errors), font=("Courier", 24))
         num_errors_label.grid(row=0, column=0)
+
+    def open_employee_lookup(self, emp_name):
+        if emp_name != "":
+            emp_data = dv.get_errors_by_name(self.data, emp_name)
+            if not emp_data:
+                messagebox.showinfo(message="The name entered is invalid.")
+            else:
+                emp_root = Toplevel()
+                emp_root.title("Employee Lookup")
+                emp_root.geometry("1200x600")
+                app = EmployeeLookup(emp_root, emp_data, emp_name)
+                mainloop()
+        else:
+            messagebox.showinfo(message="You must enter a name.")
+
 
 
 if __name__ == '__main__':

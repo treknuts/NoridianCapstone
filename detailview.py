@@ -7,6 +7,7 @@ from tkinter import *
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg as FigureCanvas
 from tkcalendar import DateEntry
+from datetime import datetime
 
 import dataVisualization as dv
 
@@ -18,27 +19,45 @@ class DetailPage(Frame):
         self.review_level = review_level
         self.background = Frame(self.parent)
         self.background.grid(row=0, column=0, sticky=NSEW)
+        self.data = dv.get_errors_by_review_type(dv.errors, self.review_level)
         self.init_window()
 
     def init_window(self):
         title = Label(self.background, text=self.review_level, width=35, height=1, font=("Courier", 32), anchor=NW)
         title.grid(column=0, row=0)
 
-        def set_filter_options(error_name, date1, date2):
-            if error_name is not None:
-                print(get_error())
-            if date1 is not None and date2 is not None:
-                print(get_date(date1, date2))
+        def set_filter_options(error_name=None, date1=None, date2=None):
+            print("Filter options\nError name: \"{}\"\nStart date: \"{}\"\nEnd date: \"{}\""
+                  .format(error_name,
+                          date1,
+                          date2))
+            print("d1 = {}\nd2 = {}".format(date1, date2))
+            # Get data based on date parameters. DateEntry objects will always have a date so we always filter by it.
+            data_by_date = dv.get_errors_by_review_date(self.data, date1, date2)
 
-        self.create_top_five(dv.errors, self.review_level)
+            # Destroy the widgets that will need to be updated based on data
+            self.pie_frame.destroy()
+            self.line_frame.destroy()
+            self.reviewer_frame.destroy()
+
+            # Only review filter option was set
+            if error_name != "":
+                print("Second if statement")
+                data_by_error = dv.get_errors_by_error_type(data_by_date, error_name)
+                self.show_reviewers(data_by_error)
+                self.create_graph(data_by_error)
+                self.show_num_error(data_by_error)
+            # Review and error name were set
+            else:
+                print("data by date: {}".format(data_by_date))
+                self.show_reviewers(data_by_date)
+                self.create_graph(data_by_date)
+                self.create_pie_chart(data_by_date)
+
 
         # Filter options
         filter_frame = LabelFrame(self.background, height=2, text="Filter Options", font=("Courier", 16))
         filter_frame.grid(row=1, column=1, ipadx=20, ipady=10, sticky=NSEW)
-
-        # Filter by error type
-        def get_error():
-            return error_entry.get()
 
         error_label = LabelFrame(filter_frame, text="Filter by a specific error")
         error_label.grid(row=0, column=0, padx=5, pady=5)
@@ -49,9 +68,6 @@ class DetailPage(Frame):
         error_entry = Entry(error_label, textvariable=error)
         error_entry.grid(row=1, column=1)
 
-        def get_date(date1, date2):
-            return "Start date: {}\nEnd date: {}".format(date1.get_date(), date2.get_date())
-
         # Filter by date
         date_label = LabelFrame(filter_frame, text="Filter by Date")
         date_label.grid(row=0, column=1, padx=5, pady=5)
@@ -61,8 +77,9 @@ class DetailPage(Frame):
 
         start_date = DateEntry(date_label, locale='en_US', date_pattern='MM/dd/yyyy')
         start_date.grid(row=0, column=1)
-        # Initialize the date entry to be empty
-        start_date.delete(0, END)
+        # Initialize the date entry to be the oldest date in the database
+        oldest = list(dv.sort_by_date(self.data))[0]
+        start_date.set_date(oldest)
 
         end_label = Label(date_label, text="End Date")
         end_label.grid(row=1, column=0)
@@ -70,58 +87,61 @@ class DetailPage(Frame):
         end_date = DateEntry(date_label, locale='en_US', date_pattern='MM/dd/yyyy')
         end_date.grid(row=1, column=1)
         # Initialize the date entry to be empty
-        end_date.delete(0, END)
+        end_date.set_date(datetime.date(datetime.now()))
 
         filter_btn = Button(filter_frame,
                             text="Set filter options",
-                            command=lambda: set_filter_options(error_entry, start_date,
-                                                               end_date)
+                            command=lambda: set_filter_options(error_entry.get(), start_date.get_date(),
+                                                               end_date.get_date())
                             )
         filter_btn.grid(row=1, column=1)
 
-        self.create_top_five(dv.errors, self.review_level)
-        self.create_graph()
-        self.create_pie_chart(review_level=self.review_level)
+        self.show_reviewers(self.data)
+        self.create_graph(self.data)
+        self.create_pie_chart(self.data, self.review_level)
 
     # List of top 5 reviewers
-    def create_top_five(self, data, review_level):
+    def show_reviewers(self, data, review_level=None):
         self.reviewer_frame = Frame(self.background)
         self.reviewer_frame.grid(row=1, column=0)
-        reviewer_label = LabelFrame(self.reviewer_frame, text="Top 5 Reviewers", font=("Courier", 24))
+        reviewer_label = LabelFrame(self.reviewer_frame, text="Reviewers", font=("Courier", 24))
         reviewer_label.grid(row=0, column=0)
-        reviewers = dv.get_top_five_reviewers_by_type(data, review_level)
+        if review_level is not None:
+            reviewers = dv.get_top_five_reviewers_by_type(data, review_level)
+        else:
+            reviewers = dv.get_top_five_reviewers(data)
         top_reviewers = Listbox(reviewer_label, width=50, height=5, font=("Courier", 14))
         top_reviewers.grid(row=0, column=0)
+        print(reviewers)
         for r in reviewers:
             top_reviewers.insert(END, "{} -> {} points given".format(r[0], r[1]))
 
 
-    def create_graph(self):
+    def create_graph(self, data):
+        self.line_frame = Frame(self.background)
+        self.line_frame.grid(row=2, column=1)
         fig = Figure(figsize=(9, 6), dpi=100)
         ax = fig.add_subplot(111)
         # Create an array of dates to find the oldest and newest dates
 
-        data = dv.sort_by_date(dv.errors)
+        dates = dv.sort_by_date(data)
         print("data: {}".format(data))
-        labels = data.keys()
+        labels = dates.keys()
         sizes = []
         for k in labels:
-            sizes.append(data.get(k))
+            sizes.append(dates.get(k))
         ax.plot(labels, sizes)
         ax.set_xticklabels(labels=labels, rotation=45)
-        self.canvas = FigureCanvas(fig, self.background)
+        self.canvas = FigureCanvas(fig, self.line_frame)
         self.canvas.get_tk_widget().grid(column=1, row=2, sticky=E)
         return self.canvas
 
-    def create_pie_chart(self, review_level=None):
+    def create_pie_chart(self, data, review=None):
         self.pie_frame = Frame(self.background)
         self.pie_frame.grid(row=2, column=0)
         fig = Figure(figsize=(9, 6), dpi=100)
         ax = fig.add_subplot(111)
-        if review_level is not None:
-            top_five = dv.get_top_five_errors(a=dv.errors, review_level=review_level)
-        else:
-            top_five = dv.get_top_five_errors(a=dv.errors)
+        top_five = dv.get_top_five_errors(data, review_level=review)
         labels = []
         sizes = []
         for i in range(len(top_five)):
@@ -132,7 +152,15 @@ class DetailPage(Frame):
         ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
         canvas = FigureCanvas(fig, self.pie_frame)
-        canvas.get_tk_widget().grid(column=0, row=2, sticky=SE)
+        canvas.get_tk_widget().grid(column=0, row=2)
+
+    def show_num_error(self, data):
+        self.pie_frame = Frame(self.background)
+        self.pie_frame.grid(row=2, column=0)
+        error = data[0][12]
+        num_errors = len(data)
+        num_errors_label = Label(self.pie_frame, text="{} : {}".format(error, num_errors), font=("Courier", 24))
+        num_errors_label.grid(row=0, column=0)
 
 
 if __name__ == '__main__':

@@ -876,9 +876,10 @@ def get_top_five_reviewers(a):
             reviewers.append(x[4])
         if x[0] == "Inter-office file review":
             reviewers.append(x[4])
-    net = Counter(reviewers).most_common(5)
+    net = Counter(reviewers).most_common() # If no argument is given to most_common it returns all in descending order
     #top_five = net[0][0] + ": " + str(net[0][1]) + "\n" + net[1][0] + ": " + str(net[1][1]) + "\n" + net[2][0] + ": " + str(net[2][1]) + "\n" + net[3][0] + ": " + str(net[3][1]) + "\n" + net[4][0] + ": " + str(net[4][1]) + "\n"
     #return top_five
+    print("Net {}".format(net))
     return net
 
 # OUTPUT for get_top_5_reviewers
@@ -902,10 +903,10 @@ def get_top_five_reviewers_by_type(a, r_type):
             reviewers.append(x[4])
         if r_type == "Inter-office file review":
             reviewers.append(x[4])
-    net = Counter(reviewers).most_common(5)
+    # net = Counter(reviewers).most_common(5)
     # top_five = net[0][0] + ": " + str(net[0][1]) + "\n" + net[1][0] + ": " + str(net[1][1]) + "\n" + net[2][0] + ": " + str(net[2][1]) + "\n" + net[3][0] + ": " + str(net[3][1]) + "\n" + net[4][0] + ": " + str(net[4][1]) + "\n"
     # return top_five
-    return net
+    return reviewers
 
 # OUTPUT for get_top_five_reviewers_by_type
 print("Test for get_top_five_reviewers_by_type using MANAGER REVIEW")
@@ -965,7 +966,7 @@ print("\n\n")
 def get_errors_by_name(a, name):
     errors_by_name = []
     for x in a:
-        if (name in x[6]) or (name in x[5]) or (name in x[4]):
+        if (name.lower() in x[6].lower()) or (name.lower() in x[5].lower()) or (name.lower() in x[4].lower()):
             errors_by_name.append(x)
 
     return errors_by_name
